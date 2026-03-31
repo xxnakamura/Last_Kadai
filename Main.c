@@ -1,23 +1,23 @@
 #include <stdio.h>
 #include "Account.h"
 /* 関数プロトタイプ宣言 */
-void add_acc(ACC a); 
+void add_acc(ACCOUNT account); 
 void prt_acc(int id); 
-ACC* find(int id);
-int wd(ACC *a, int m); 
-int chk_m(int m);
-int auth(ACC *a, int pw); 
-int get_f(int h);
+ACCOUNT* find(int id);
+int wd(ACCOUNT *account, int money); 
+int chk_m(int money);
+int auth(ACCOUNT *account, int pw); 
+int get_f(int handringfee);
 
 int main() {
     // --- 1. 初期設定（口座情報の登録） ---
-    ACC a1 = {101, "Taro", 1234, 50000, 1, 0};
-    add_acc(a1);
+    ACCOUNT a1 = {101, "Taro", 1234, 50000, 1, 0};
+    add_account(a1);
 
     // --- 2. カード挿入と本人確認（ID入力） ---
     int cur_id;
     printf("CARD IN (ID): "); scanf("%d", &cur_id);
-    ACC *user = find(cur_id);
+    ACCOUNT *user = find(cur_id);
 
     if (user != NULL && user->st == 1) {
         int p; printf("PASS: "); scanf("%d", &p);
