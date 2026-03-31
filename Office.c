@@ -1,27 +1,43 @@
+/***********************************************/
+/*                                             */
+/*       プログラム名：銀行口座の登録・表示・検索  */
+/*                                             */
+/*       作成者：suga                          */
+/*       作成日：2026/03/31                    */
+/*                                            */
+/***********************************************/
+
+
 #include <stdio.h>
 #include <string.h>
 #include "Account.h"
 
-static ACC db[MAX_A];
-static int total = 0;
+static ACCOUNT db[MAX_ACCOUNT];   //登録可能な口座数
+static int total = 0;             //現在の口座数
 
-void add_acc(ACC a) {
-if(total<MAX_A){
-db[total++]=a;
-}
-}
-
-// 表示処理：インデントが崩れており、スキャナビリティが低い
-void prt_acc(int id) {
-for(int i=0;i<total;i++){
-if(db[i].id==id){
-printf("--- INFO ---\n");
-printf("ID: %d\nNAME: %s\nBAL: %d\n", db[i].id, db[i].n, db[i].b);
-}
-}
+/*口座登録が可能か判別する*/
+void add_account(ACCOUNT account) {
+    if(total < MAX_ACCOUNT){
+        db[total++]=account;
+    }
 }
 
-ACC* find(int id) {
-for(int i=0;i<total;i++) if(db[i].id==id) return &db[i];
-return NULL;
+/*口座表示_処理*/
+void print_account(int id) {
+    for(int i=0; i<total; i++){
+        if(db[i].id==id){
+            printf("--- INFO ---\n");
+            printf("ID: %d\nNAME: %s\nBAL: %d\n", db[i].id, db[i].name, db[i].balance);
+        }
+    }
+}
+
+/*口座検索*/
+ACCOUNT* find(int id) {
+    for(int i=0; i<total; i++) {
+        if(db[i].id==id){ 
+            return &db[i];
+        }
+    }
+    return NULL;
 }
