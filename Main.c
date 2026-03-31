@@ -20,7 +20,7 @@ int get_f(int handringfee);
 int main() {
     // --- 1. 初期設定（口座情報の登録） ---
     ACCOUNT a1 = {101, "Taro", 1234, 50000, 1, 0};
-    add_account(a1);
+    add_acc(a1);
 
     // --- 2. カード挿入と本人確認（ID入力） ---
     int cur_id;
