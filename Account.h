@@ -11,12 +11,12 @@ typedef struct {
 	} ACCOUNT;
 	
 void add_account(ACCOUNT account);      // 口座登録
-void prt_account(int id);     // 口座表示
+void print_account(int id);     // 口座表示
 	ACCOUNT* find(int id);        // 口座検索
 
-int  wd(ACC *account, int money);   // 出金実行
-int  chk_m(int money);        // 金額検証
-int  auth(ACC *account, int pw);// パスワード照合
+int  withdrawal_execution(ACCOUNT *account, int money);   // 出金実行
+int  check_money(int money);        // 金額検証
+int  verification_password(ACCOUNT *account, int pw);// パスワード照合
 int  get_fee(int h);        // 手数料計算
 
 #define MAX_A 10
