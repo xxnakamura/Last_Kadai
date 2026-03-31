@@ -12,7 +12,8 @@ int verification_password(ACCOUNT *account, int pw) {
     if (account -> password == pw) {
         account ->l = 0;
         return 1;
-    } else {
+    } 
+	else {
         account -> l++;
         if (account -> l >= 3){
 			account -> status = 0; 
