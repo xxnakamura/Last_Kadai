@@ -19,6 +19,6 @@ int  check_money(int money);        // 金額検証
 int  verification_password(ACCOUNT *account, int pw);// パスワード照合
 int  get_fee(int h);        // 手数料計算
 
-#define MAX_A 10
+#define MAX_ACCOUNT 10
 
 #endif
