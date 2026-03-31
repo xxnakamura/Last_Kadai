@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "Account.h"
 
+//パスワード確認
 int verification_password(ACCOUNT *account, int pw) {
     if (account -> password == pw) {
         account ->l = 0;
@@ -20,6 +21,7 @@ int verification_password(ACCOUNT *account, int pw) {
     }
 }
 
+//手数料払い出し
 int get_fee(int h) {
     if (h < 9 || h >= 18) {
         return 110; 
